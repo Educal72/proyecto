@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>           
+        </header>
+        <section class="box1">
+            <h1 class="top1">Servicio de<br>Adopción</h1>
+        </section>
+        <div>
+            <p class="padopcion">Lorem ipsum dolor sit amet consectetur adipiscing elit cum praesent condimentum, ligula massa blandit vulputate varius sed nullam enim ante, aliquet aliquam cursus cubilia molestie justo viverra dignissim nascetur. Posuere praesent quis facilisi cras fusce orci dignissim ultricies nam metus, netus lectus elementum congue risus et eu aliquet habitant at, dictum velit nullam semper primis augue mollis erat mattis. Conubia suspendisse sed commodo massa sapien varius fringilla erat pulvinar faucibus praesent facilisi eu proin ridiculus quis vivamus, venenatis quisque nec id at arcu condimentum ullamcorper cum ut litora dictumst malesuada tellus dictum.</p>
+        </div>
+        <div class="box2">
+            <table  class="tableadp" border="1">     
+                <tr>
+                    <th style="width: 150px">Foto</th>
+                    <th style="width: 100px">Nombre</th>
+                    <th style="width: 100px">Edad</th>
+                    <th style="width: 200px">Raza</th>
+                    <th style="width: 400px">Descripcion</th>
+                </tr>
+                <tr th:each="animal : ${animales}">
+                    <td><img style="height:150px; width:150px;" src="/img/img3.png" alt=""/></td>                  
+                    <td>[[${animal.nombre}]]</td>
+                    <td>[[${animal.edad}]]</td>
+                    <td>[[${animal.raza}]]</td>
+                    <td>[[${animal.descripcion}]]</td>
+                </tr>            
+            </table> 
+            </div>
+        <footer th:replace="layout/plantilla :: footer"/>           
+        </footer>
+    </body>
+</html>

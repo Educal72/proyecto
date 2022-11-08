@@ -1,0 +1,33 @@
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header" th:fragment="header">
+            <nav class="nav">
+                <a class="logo nav-link" href="/"> <img style="vertical-align:-20%" src="/img/img1.png" alt=""/>PetCare</a> 
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="audios.html">Productos</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" th:href="@{/adopcion/ver}">Adopción</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="iframe.html">Carrito</a></li>
+                    <li class="nav-menu-item"><a class="nav-menu-link nav-link" href="formulario.html">Cuenta</a></li>
+                </ul>
+            </nav>
+        </header>
+        <footer class="footer" th:fragment="footer">
+            <div class="container">
+            <p class="agrad">Contacto</p>
+            <img class="img6" src="/img/img6.png" alt=""/>
+            </div>
+            <div>
+            <p class="agrad1">Bv. Rohrmoser, 25 mt Oeste del semáforo del Parque de la Amistad,</p>
+            <p class="agrad1">frente a la parada de Bus. 10109 San José, Costa Rica</p>
+            <p class="agrad2">Teléfonos: +506. 2220-0325 / 8484-8343</p>
+            </div>
+        </footer>
+    </body>
+</html>
