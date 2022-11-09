@@ -3,15 +3,9 @@
     box-sizing: border-box;
 }
 
-.tbody {
-    height: 100px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
 body {
    font-family: sans-serif;
-   
+   padding: 90px 20px 0;
 }
 
 .header {
@@ -48,14 +42,6 @@ body {
     font-weight: bold;
     padding: 0 40px;
     line-height: 90px;
-}
-
-.logo:hover{
-    font-size: 30px;
-    font-weight: bold;
-    padding: 0 40px;
-    line-height: 90px;
-    color:#F2A922;
 }
 
 
@@ -96,62 +82,13 @@ body {
   left: -90px;
 }
 
-.box1 {
-  background-color: #260D40;
-  width: 40%;
-  padding: 110px;
-  padding-bottom: 107px;
-  margin: 90px;
-  position: fixed;
-  bottom: 10%;
-  left: -90px;
-  top: 0px;
-  height: 0px;
-}
-
-.box3 {
-  background-color: white;
-  width: 60%;
-  padding: 110px;
-  padding-bottom: 107px;
-  margin: 90px;
-  position: fixed;
-  bottom: 10%;
-  left: 1px;
-  top: 0px;
-  height: 0px;
-}
-
-.box2 {
-  background-color: #9266F2;
-  width: 100%;
-  padding: 250px;
-  margin: 90px;
-  position: fixed;
-  bottom: 50%;
-  left: -90px;
-  top: 215px;
-  overflow-y: auto;
-}
-
 .container{
     display:flex;
 }
 
-.pindex{
+.user{
     text-align: justify;
-    padding-left: 15px;
-    font-size:18px;
-    line-height: 1.5;
-    padding-right: 10px;
-}
-
-.padopcion{
-    position: fixed;
-    padding-left: 41%;
-    padding-right: 15px;
-    top: 92px;
-    text-align: justify;
+    padding: 140px;
     font-size:18px;
     line-height: 1.5;
 }
@@ -167,154 +104,77 @@ body {
 .top1{
   color: white;
   position:fixed;
-  left: 31%;
-  top: 165px;
+  left:635px;
+  top:55%;
+
 }
 
-.img2{
+.img5{
     position: fixed;
     padding: 24px;
     height:150px;
     width:150px;
-    top: 57%;
+    top: 67%;
     left: 45%;
 }
 
-
-
-.p1{
+.p4{
     color: white;
     position: fixed;
-    top: 75%;
-    left: 696px;
+    top: 85%;
+    left: 919px;
 
-
-}
-
-.img3{
-    position: fixed;
-    padding: 10px;
-    height:150px;
-    width:150px;
-    top: 57%;
-    left: 35%;
-}
-
-.p2{
-    color: white;
-    position: fixed;
-    top: 75%;
-    left: 578px;
-}
-
-.img4{
-    position: fixed;
-    padding: 20px;
-    height:150px;
-    width:150px;
-    top: 57%;
-    left: 55%;
-}
-
-.p3{
-    color: white;
-    position: fixed;
-    top: 75%;
-    left: 889px;
-}
-
-.img7{
-    position: fixed;
-    padding: 24px;
-    height:200px;
-    width:200px;
-    top: 40%;
-    left: 0%;
-}
-
-.tableadp{
-    top: 305px;
-    left: -0px;
-    position: fixed;
-    width: 100%;
-    max-height: 20%;
-    color: white;
-    border: transparent solid;
-    background-color: #9266F2;
-    padding-left: -90px;
-}
-th{
-   border-right: thin solid #F2A922;
-   border-left: thin solid #F2A922;
-   text-align: center;
-   background-color: #9266F2;
-}
-
-td{
-    border-right: thin solid #F2A922;
-    border-left: thin solid #F2A922;
-    text-align: center; 
-}
-
-.agrad {
-    position:fixed;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: left;
-    padding: 15px 50px;
-    top:87%;
-}
-
-.l {
-    height: 90px;
-    position: fixed;
-    top: 15%;
-    left: 37%;
-    color: #665533;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 50px;
-}
-
-.ll {
-    height: 90px;
-    position: fixed;
-    top: 60%;
-    left: 5%;
-    color: #665533;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 50px;
-}
-
-.agrad1 {
-    opacity: 50%;
-    padding-top: 25px;
-    padding-right: 15px;
-    color: white;
-    font-size: 18px;
-    text-align: right;
-    line-height: 0;
-
-}
-
-.agrad2 {
-    opacity: 50%;
-    padding-top: 15px;
-    padding-right: 15px;
-    color: white;
-    font-size: 18px;
-    text-align: right;
-    line-height: 2.5;
 
 }
 
 .img6{
     position: fixed;
-    top:88%;
-    height: 100px;
+    padding: 10px;
+    height:150px;
     width:150px;
-    padding-left: 46px;
+    top: 67%;
+    left: 35%;
 }
 
+.p5{
+    color: white;
+    position: fixed;
+    top: 85%;
+    left: 700px;
+}
+
+.img7{
+    position: fixed;
+    padding: 20px;
+    height:150px;
+    width:150px;
+    top: 67%;
+    left: 55%;
+}
+
+.p6{
+    color: white;
+    position: fixed;
+    top: 85%;
+    left: 1089px;
+}
+
+#Login { 
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    height: 50%;
+    width: 40%;
+   background-color: #9266F2;
+    padding: 10px;
+}
+
+#Registro { 
+    position: absolute;
+    top: 20%;
+    right:  5%;
+    height: 50%;
+    width: 40%;
+   background-color: #9266F2;
+    padding: 10px;
+}
