@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+            
+        </header>
+        <br>
+        <br>
+        <section class="container">           
+            <div>
+                <img class="img9" src="img/perfil.png" alt=""/>
+                <h1 class=top10>Juan</h1>
+
+                <p class="user">Puntos Acumulados:<br>9999999999</p>
+                <p class="user2">Calificacion de adopcion:<br>99</p>
+            </div>
+        </section>
+        <section class="box"> 
+            <h2 class="top9">Compras Recientes</h2>
+            <img  class="img2" style="width: 150px;height: 150px;" src="/img/collar.jpeg" alt=""/>
+                <p class="p9">Collar</p>
+                <img class="img10" style="width: 150px;height: 140px;" src="/img/Shampoo.jpeg" alt=""/>
+                <p class="p2">Shampoo</p>
+                <img class="img4" style="width: 150px;height: 150px;" src="/img/alimento.jpeg" alt=""/>
+                <p class="p3">Alimento</p>
+        </section>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

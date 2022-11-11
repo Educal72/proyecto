@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+                </head>
+                <body>
+                    <header th:replace="layout/plantilla :: header"/>           
+                    </header>
+                    <section class="box1">
+                        <h1 style="text-align: right" class="top1">Venta de<br>Productos</h1>
+                    </section>
+                    <div>
+                        <p class="padopcion"><a th:href="@{/productos/nuevo/}">Nuevo</a><br>Lorem ipsum dolor sit amet consectetur adipiscing elit cum praesent condimentum, ligula massa blandit vulputate varius sed nullam enim ante, aliquet aliquam cursus cubilia molestie justo viverra dignissim nascetur. Posuere praesent quis facilisi cras fusce orci dignissim ultricies nam metus, netus lectus elementum congue risus et eu aliquet habitant at, dictum velit nullam semper primis augue mollis erat mattis. Conubia suspendisse sed commodo massa sapien varius fringilla erat pulvinar faucibus praesent facilisi eu proin ridiculus quis vivamus.</p>
+                    </div>
+                    <div class="box7" th:if="${productos!=null and !productos.empty}"> 
+                        <table  class="tableadp" border="1">     
+                            <tr>
+                                <th style="width: 150px;">Foto</th>
+                                <th style="width: 100px">Nombre</th>
+                                <th style="width: 100px">Precio</th>
+                                <th style="width: 400px">Descripcion</th>
+                                <th style="width: 200px">Añadir al Carrito</th>
+                            </tr>
+                            <tr th:each="productos : ${productos}">
+                                <td><img style="height: 150px; width: 150px;" src="/img/img3.png" alt=""/></td>                  
+                                <td>[[${productos.nombre}]]</td>
+                                <td>[[${productos.precio}]]</td>
+                                <td><a th:href="@{/productos/modificar/} + ${productos.idProducto}">Editar</a>[[${productos.descripcion}]]</td>
+                                <td><button>Añadir al Carrito</button></td>
+                                            </tr>  
+                                            </table> 
+
+                                            </div>
+                                            <div class="box2" th:if="${productos==null or productos.empty}">
+                                                <h2  style="position: fixed;top:315px;left: 15px;color: white">No hay productos a la venta en este momento.<br><a th:href="@{/prodcutos/}">Nuevo</a></h2>
+                                                
+                                            </div>
+                                            <footer th:replace="layout/plantilla :: footer"/>
+
+                                            </body>
+                                            </html>
