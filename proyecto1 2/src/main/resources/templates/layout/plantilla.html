@@ -1,0 +1,50 @@
+
+<html>
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="menu.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        
+    </head>
+    <body>
+        <header class="header" th:fragment="header">
+            <nav class="n">
+                <a class="lo nav-li" href="/"> <img style="vertical-align:-20%" src="/img/img1.png" alt=""/>PetCare</a> 
+                <ul class="nav-me">
+                    <li class="nav-menu-it"><a class="nav-menu-li nav-li" th:href="@{/productos/ver}">Productos</a></li>
+                    <li class="nav-menu-it"><a class="nav-menu-li nav-li" th:href="@{/adopcion/ver}">Adopción</a></li>
+                    <li class="nav-menu-it"><a class="nav-menu-li nav-li" th:href="@{/carrito/ver}">Carrito</a></li>
+                    <li class="nav-menu-it"><a class="nav-menu-li nav-li" th:href="@{/cuenta}" >Cuenta</a></li>
+                    <li class="nav-menu-it" sec:authorize="isAuthenticated()"><form method="POST" th:action="@{/logout}" ><a href="#" onclick="this.parentNode.submit();"class="nav-menu-li nav-li">
+                                <i class="fas fa-user-times"></i>Logout
+                            </a>
+                        </form>
+                    </li>
+                    <li class="nav-menu-it" sec:authorize="!isAuthenticated()"><form method="POST" th:action="@{/logout}" ><a href="#" onclick="this.parentNode.submit();"class="nav-menu-li nav-li">
+                                <i class="fas fa-user-times"></i>Login
+                            </a>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <footer class="footer" th:fragment="footer">
+            <div class="contain">
+                <p class="agrad">Contacto</p>
+                <img class="img6" src="/img/img6.png" alt=""/>
+            </div>
+            <div>
+                <p class="agrad1">Bv. Rohrmoser, 25 mt Oeste del semáforo del Parque de la Amistad,</p>
+                <p class="agrad1">frente a la parada de Bus. 10109 San José, Costa Rica</p>
+                <p class="agrad2">Teléfonos: +506. 2220-0325 / 8484-8343</p>
+
+            </div>
+        </footer>
+    </body>
+</html>

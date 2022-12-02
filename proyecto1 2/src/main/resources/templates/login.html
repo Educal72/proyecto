@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link href="css/extras.css" rel="stylesheet" type="text/css"/>
+            <link href="css/menu.css" rel="stylesheet" type="text/css"/>
+           
+
+
+            <style>
+                .box5-Registro {
+                    top: 33%;
+                    width: 45%;
+                    border: 15px solid #260D40;
+                    background-color: whitesmoke;
+                    position: absolute;
+                    right:15px;
+                    margin: 20px;
+                    border: 15px solid #260D40;
+                    padding: 10px;
+                    border-radius: 25px;
+                }
+                .box4-Login {
+                    top: 33%;
+                    width: 45%;
+                    position: absolute;
+                    left: 15px;
+                    border-radius: 25px;
+                    background-color: whitesmoke;
+                    border: 15px solid #260D40;
+                    padding: 10px;
+                    margin: 20px;
+                }
+            </style>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>         
+
+
+
+
+
+        <div class="box5-Registro">
+            <h2 style="background-color: #260D40; color: #F2A922;border-radius: 5px;font-size: 28px;">Registro</h2>
+            <hr/>
+            <form method="POST" th:action="@{/registrar}">         
+
+                <fieldset>
+                    <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Usuario</strong></label><br>
+                        <input type="text" name="username" id="username"/>
+                </fieldset>
+                <fieldset>
+                    <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Contraseña</strong></label><br>
+                        <input type="password" name="password" id="password"/>
+                </fieldset>
+
+                <hr/>
+                <br>
+                    <input type="submit" value="Registrarse" name="guardar"/>
+            </form>
+        </div>
+        <section id="login">
+            <div class="box4-Login">
+                <h2 style="background-color: #260D40; color: #F2A922;border-radius: 5px;font-size: 28px;">Login</h2>
+                <hr/>
+                <form method="post" th:action="@{/login}">         
+
+                    <fieldset>
+                        <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Usuario</strong></label><br>
+                            <input type="text" name="username" id="username"/>
+                    </fieldset>
+                    <fieldset>
+                        <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Contraseña</strong></label><br>
+                            <input type="password" name="password" id="password"/>
+                    </fieldset>
+
+                    <hr/>
+                    <br>
+                        <input type="submit" value="Iniciar sesion" name="guardar"/>
+                </form><br>
+
+
+            </div>
+        </section>
+
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

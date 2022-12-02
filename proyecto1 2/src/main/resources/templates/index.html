@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="css/extras.css" rel="stylesheet" type="text/css"/>
+             <link href="css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="body1">
+        <header th:replace="layout/plantilla :: header"/>         
+        </header>
+        <br><br><br><br><br><br><br>
+        <section class="contain">           
+            <div class="vid">
+                <iframe width="500" height="250" src="https://www.youtube.com/embed/Oh-MjkZzoRg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
+            </div>
+            <div>
+                <h1 style="padding-left: 14px">Lorem Ipsum</h1>
+                <p class="pindex">Lorem ipsum dolor sit amet consectetur adipiscing elit cum praesent condimentum, ligula massa blandit vulputate varius sed nullam enim ante, aliquet aliquam cursus cubilia molestie justo viverra dignissim nascetur. Posuere praesent quis facilisi cras fusce orci dignissim ultricies nam metus, netus lectus elementum congue risus et eu aliquet habitant at, dictum velit nullam semper primis augue mollis erat mattis. Conubia suspendisse sed commodo massa sapien varius fringilla erat pulvinar faucibus praesent facilisi eu proin ridiculus quis vivamus, venenatis quisque nec id at arcu condimentum ullamcorper cum ut litora dictumst malesuada tellus dictum.</p>                
+            </div>
+        </section>
+        <section class="box"> 
+            <h2 class="top">Servicios</h2>
+                <img class="img2" src="img/img2.png" alt=""/>
+                <p class="p1">Venta de Productos</p>
+                <img class="img3" src="img/img3.png" alt=""/>
+                <p class="p2">Adopción</p>
+                <img class="img4" src="img/img4.png" alt=""/>
+                <p class="p3">Cuidado</p>
+        </section>
+        <footer th:replace="layout/plantilla :: footer"/>    
+        </footer>
+    </body>
+</html>

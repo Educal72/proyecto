@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+                <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+                <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+                <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+                <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+                </head>
+                <body class="body1">
+                    <header th:replace="layout/plantilla :: header"/>
+
+                    </header>
+                    <br>
+                        <br>
+                            <section class="container">           
+                                <div>
+                                    <img class="img9" src="img/perfil.png" alt=""/>
+                                    <h1 class=top10>Juan</h1>
+
+                                    <p class="user">Puntos Acumulados:<br>9999999999</p>
+                                    <p class="user2">Calificacion de adopcion:<br>99</p>
+                                </div>
+                            </section>
+                            <section class="box"> 
+                                <div class="d-flex justify-content-around">
+                                    <div class="container" sec:authorize="hasRole('ROLE_ADMIN')" >
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4>Lista de usuarios</h4>
+                                                    </div>
+                                                    <div >
+                                                        <table class="table table-stryped">
+                                                            <thead class="thead-dark">
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th >Nombre</th>
+                                                                    <th >Contraseña</th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr >
+                                                                    <td>1</td>
+                                                                    <td>Eduardo</td>
+                                                                    <td class="text-end">123</td>
+                                                                    <td>
+                                                                        <a sec:authorize="hasRole('ROLE_ADMIN')" 
+                                                                           class="btn btn-danger">
+                                                                            <i class="fas fa-angle-double-right"></i> Eliminar
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a sec:authorize="hasRole('ROLE_ADMIN')" 
+                                                                           class="btn btn-success">
+                                                                            <i class="fas fa-angle-double-right"></i> Modificar
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <td>2</td>
+                                                                    <td>Dylan</td>
+                                                                    <td class="text-end">456</td>
+                                                                    <td>
+                                                                        <a sec:authorize="hasRole('ROLE_ADMIN')" 
+                                                                           class="btn btn-danger">
+                                                                            <i class="fas fa-angle-double-right"></i> Eliminar
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a sec:authorize="hasRole('ROLE_ADMIN')" 
+                                                                           class="btn btn-success">
+                                                                            <i class="fas fa-angle-double-right"></i> Modificar
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr >
+                                                                    <td>3</td>
+                                                                    <td>Cliente</td>
+                                                                    <td class="text-end">012</td>
+                                                                    <td>
+                                                                        <a sec:authorize="hasRole('ROLE_ADMIN')" 
+                                                                           class="btn btn-danger">
+                                                                            <i class="fas fa-angle-double-right"></i> Eliminar
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a sec:authorize="hasRole('ROLE_ADMIN')" 
+                                                                           class="btn btn-success">
+                                                                            <i class="fas fa-angle-double-right"></i> Modificar
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="card text-center bg-success text-white mb-3">
+                                                        <div class="card-body">
+                                                            <h3 >Total Usuarios</h3>
+                                                            <h4 class="display-6">
+                                                                <i class="fas fa-users"></i> 3
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </section>
+                            <footer th:replace="layout/plantilla :: footer"/>
+                            </body>
+                            </html>

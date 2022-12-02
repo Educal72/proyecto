@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+                <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+                    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"> 
+                        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+                        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+                        </head>
+    <body class="body1" style="overflow-x: hidden;">
+                            <header th:replace="layout/plantilla :: header"/>           
+                            </header>
+                            <section class="box15">
+                                <h1 class="top2" style="font-size: 24px; position: absolute">Venta de Productos |</a><a class="nav-menu-lin nav-lin" style="font-size: 18px" th:href="@{/productos/ver}">Todos</a>
+                                    <a class="nav-menu-lin nav-lin" style="font-size: 18px" th:href="@{/productos/buscar/alimento}">Alimento</a>
+                                    <a class="nav-menu-lin nav-lin" style="font-size: 18px" th:href="@{/productos/buscar/correas}">Correas</a>
+                                    <a class="nav-menu-lin nav-lin" style="font-size: 18px" th:href="@{/productos/buscar/juguetes}">Juguetes</a>
+                                    <a class="nav-menu-lin nav-lin" style="font-size: 18px" th:href="@{/productos/buscar/higiene}">Higiene</a>
+                                    <a class="nav-menu-lin nav-lin" style="font-size: 18px" th:href="@{/productos/nuevo/}" sec:authorize="hasRole('ROLE_ADMIN')">Nuevo</a></h1>
+                            </section>
+                            <br><br><br><br><br><br><br><br>
+                                <div class="container" style="padding-bottom: 8rem;">
+                                    <div class="row row-cols-3" th:if="${productos!=null and !productos.empty}">     
+                                        <div class="card" style="margin: 0.5rem; width: 424px"th:each="productos : ${productos}">
+                                            <div class="card-body">
+                                                <h5 class="card-title">[[${productos.nombre}]]<br><hr></h5>
+                                                <h6 class="card-subtitle mb-2 text-muted text-end">₡[[${#numbers.formatDecimal(productos.precio,3,0)}]]</h6>
+                                                <p class="card-text">[[${productos.descripcion}]]</p>
+                                                <a class="text-decoration-none link" th:if="${productos.activo=true}" th:href="@{/productos/modificar/} + ${productos.idProducto}"><button class="btn w-100" style="color: #F2A922;background-color: #260D40">Agregar al Carrito</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div th:if="${productos==null and productos.empty}">
+                                        <h2>no mostrar</h2>
+                                    </div>
+                                </div>
+                            <div th:if="${productos==null or productos.empty}">
+                                <h2  style="position: fixed;top:200px;left: 15px;color: black">No hay productos a la venta en este momento.<br><a th:href="@{/productos/nuevo/}" sec:authorize="hasRole('ROLE_ADMIN')">Nuevo</a></h2>
+
+                            </div>
+                            <footer class="footer">
+                                <div class="contain">
+                                    <p class="agrad" style="line-height: 1.2">Contacto</p>
+                                    <img class="img6" src="/img/img6.png" alt=""/>
+                                </div>
+                                <div>
+                                    <p class="agrad1">Bv. Rohrmoser, 25 mt Oeste del semáforo del Parque de la Amistad,</p>
+                                    <p class="agrad4">frente a la parada de Bus. 10109 San José, Costa Rica</p>
+                                    <p class="agrad3">Teléfonos: +506. 2220-0325 / 8484-8343</p>
+                                </div>
+                            </footer>
+
+                        </body>
+                        </html>

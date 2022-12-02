@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>Petcare</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="body1">
+        <header th:replace="layout/plantilla :: header"/>
+        <br><br><br><br><br>
+        <center >
+            <div class="box4">
+                <h2 style="background-color: #260D40; color: #F2A922;border-radius: 5px;font-size: 28px;">Nuevos Datos</h2>
+        <hr/>
+        <form th:action="@{/productos/guardar}" method="post" th:object="${productos}">          
+            <input type="hidden" name="idProducto" th:field="*{idProducto}"/>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Nombre</strong></label><br>
+                <input type="text" name="nombre" th:field="*{nombre}" required/>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Categoria</strong></label><br>
+            <select name="categoria" id="categoria" th:field="*{categoria}">
+            <option value="Alimento">Alimento</option>
+            <option value="Correas">Correas</option>
+            <option value="Juguetes">Juguetes</option>
+            <option value="Higiene">Higiene</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Precio</strong></label><br>
+            <input type="number" name="precio" th:field="*{precio}" min="0"/>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="desc"><strong>Descripción</strong></label><br>
+            <textarea style="max-width: 600px;max-height: 90px;" type="text" name="desc" th:field="*{descripcion}" required/>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Existencias</strong></label><br>
+            <input type="number" name="existencias" th:field="*{existencias}" min="0"/>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="activo"><strong>Activo</strong></label><br>
+            <input type="checkbox" name="activo" th:field="*{activo}"/>
+        </fieldset>
+            <hr/>
+            <br>
+            <input type="submit" value="Guardar" name="guardar"/>
+        </form><br>
+        <a th:href="@{/productos/ver}"><button>Regresar</button></a>
+        </div>
+            
+            <div class="box5">
+                <h2 style="background-color: #260D40; color: #F2A922;border-radius: 5px;font-size: 28px;">Información Actual</h2>
+                <hr/>
+        <form th:action="@{/productos/guardar}" method="post" th:object="${productos}">          
+            <input type="hidden" name="idProducto" th:field="*{idProducto}">
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Nombre</strong></label><br>
+            <p>[[${productos.nombre}]]</p>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Categoria</strong></label><br>
+            <p>[[${productos.categoria}]]</p>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Precio</strong></label><br>
+                <p>[[${productos.precio}]]</p>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="desc"><strong>Descripción</strong></label><br>
+            <p>[[${productos.descripcion}]]</p>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Existencias</strong></label><br>
+            <p>[[${productos.existencias}]]</p>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="activo"><strong>Activo</strong></label><br>
+            <input type="checkbox" name="activo" th:checked="${productos.activo}" disabled="true"/>
+        </fieldset>
+                <hr/>
+            <br>
+                <a th:href="@{/productos/eliminar/} + ${productos.idProducto}">Eliminar de la Lista</a>
+                </form>
+               
+            </div>
+            
+        </center>
+                            <br><br><br><br><br><br><br>
+    </body>
+</html>

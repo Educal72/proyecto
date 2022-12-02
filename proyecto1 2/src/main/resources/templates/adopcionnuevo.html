@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>Petcare</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="body1" style="padding-bottom: 120px;">
+        <header th:replace="layout/plantilla :: header"/>
+        <br><br><br><br><br><br>
+        <center>
+            <div class="box6">
+                <h2 style="background-color: #260D40; color: #F2A922;border-radius: 5px;font-size: 28px;">Nueva Adopción</h2>
+        <hr/>
+        <form th:action="@{/adopcion/guardar}" method="post" th:object="${animal}">          
+            <input type="hidden" name="idCliente" th:field="*{idAnimal}">
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Nombre</strong></label><br>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="edad"><strong>Edad</strong></label><br>
+            <input type="number" name="edad" th:field="*{edad}" min="0"/>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="raza"><strong>Raza</strong></label><br>
+            <input type="text" name="raza" th:field="*{raza}"/>
+        </fieldset>
+        <fieldset>
+            <label style="font-size: 20px;line-height: 1.5;" for="desc"><strong>Descripción</strong></label><br>
+            <textarea style="max-width: 600px;" type="text" name="desc" th:field="*{descripcion}"/>
+        </fieldset>
+            <hr/>
+            <br>
+            <input type="submit" value="Guardar" name="guardar"/>
+        </form><br>
+        <a th:href="@{/adopcion/ver}"><button>Regresar</button></a>
+        </div>
+        </center>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body >
+</html>
