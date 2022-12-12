@@ -5,7 +5,6 @@ Calderón Mora Eduardo
 Ureña Piedra Dylan Antonio
 
 Primera Versión del Script para la Base de Datos MySQL
-
 /*drop schema adopcion;
 drop user usuario;*/
 /*Se crea la base de datos */
@@ -20,6 +19,7 @@ flush privileges;
 
 
 /*Se crea la tabla de estados llamada estado... igual que la clase Estado */
+
 CREATE TABLE adopcion.animales (
   id_animal INT NOT NULL AUTO_INCREMENT,
   img blob,
@@ -27,6 +27,7 @@ CREATE TABLE adopcion.animales (
   edad int NOT NULL,
   raza VARCHAR(25) NOT NULL,
   descripcion VARCHAR(500) NULL,
+  ruta_imagen varchar(200),
   PRIMARY KEY (`id_animal`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -43,6 +44,9 @@ DROP TABLE ADOPCION.PRODUCTOS;
 
 */
 
+INSERT INTO adopcion.productos (id_producto,nombre,categoria,precio, descripcion,existencias,activo,ruta_imagen) VALUES
+(1,'nombre','Juguetes','12','descripcion1',10,True,'https://firebasestorage.googleapis.com/v0/b/adopcion-e0dc4.appspot.com/o/imagenes%2Fdownload-1.jpg?alt=media&token=77ea80e2-c591-4bc0-ba8e-f622b6f01029');
+
 CREATE TABLE adopcion.productos (
   id_producto INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
@@ -51,16 +55,19 @@ CREATE TABLE adopcion.productos (
   descripcion VARCHAR(500) NOT NULL,
   existencias int not null,
   activo bool,
+  ruta_imagen varchar(200),
   PRIMARY KEY (`id_producto`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_eo_0900_ai_ci;
 
 
+
 create table adopcion.usuario(  
      id_usuario INT NOT NULL AUTO_INCREMENT,  
      username varchar(40) not null,  
      password varchar(250) not null,  
+     puntos INT,
       
      PRIMARY KEY (id_usuario)  
 )
@@ -91,12 +98,20 @@ insert into adopcion.rol values
 (4,'ROLE_USER',2),
 (5,'ROLE_USER',3);
 
+
+
+
 /*
 INSERT INTO adopcion.productos (nombre,categoria,precio, descripcion) VALUES
 ('nombre','Juguetes','12','descripcion1');
 
 
 */
+
+
+ 
+
+
 
 
 /*Se insertan 4 registros en la tabla usuario como ejemplo */
