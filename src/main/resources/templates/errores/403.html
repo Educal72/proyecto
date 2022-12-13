@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+            <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+            <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+            <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+            <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+            <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    </head>
+    
+    <body class="body1">
+        <header th:replace="layout/plantilla :: header"/>         
+<br><br><br><br><br><br><br>
+        <section id="actions" class="py-4 mb-4">
+            <div class="container">
+                <div class="row"></div>
+            </div>
+        </section>
+        <section id="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Autenticar</h4>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    Acceso denegado
+                                </div>
+                                <p class="card-text">No tiene permisos para ver esta página o ejecutar esta acción</p>
+                                <a class="card-link" th:href="@{/}">Regresar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <footer class="footer">
+            <div class="contain">
+                <p class="agrad" style="line-height: 1.2">Contacto</p>
+                <img class="img6" src="/img/img6.png" alt=""/>
+            </div>
+            <div>
+                <p class="agrad1">Bv. Rohrmoser, 25 mt Oeste del semáforo del Parque de la Amistad,</p>
+                <p class="agrad4">frente a la parada de Bus. 10109 San José, Costa Rica</p>
+                <p class="agrad3">Teléfonos: +506. 2220-0325 / 8484-8343</p>
+            </div>
+        </footer>
+    </body>
+</html>

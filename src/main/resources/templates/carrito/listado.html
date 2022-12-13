@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>TechShop</title>
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="body1">
+
+
+        <header th:replace="layout/plantilla :: header"/>
+        <br><br><br><br><br><br><br>
+                                    <section th:replace="carrito/fragmentosCarrito :: listadoCarrito"/>
+
+
+
+                                    <footer class="footer">
+                                        <div class="contain">
+                                            <p class="agrad" style="line-height: 1.2">Contacto</p>
+                                            <img class="img6" src="/img/img6.png" alt=""/>
+                                        </div>
+                                        <div>
+                                            <p class="agrad1">Bv. Rohrmoser, 25 mt Oeste del semáforo del Parque de la Amistad,</p>
+                                            <p class="agrad4">frente a la parada de Bus. 10109 San José, Costa Rica</p>
+                                            <p class="agrad3">Teléfonos: +506. 2220-0325 / 8484-8343</p>
+                                        </div>
+
+                                    </footer>
+                                    </body>
+                                    </html>

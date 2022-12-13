@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="static.css/menu.css" rel="stylesheet" type="text/css"/>
+                <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+                <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/> 
+                <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                <script th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+                <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+                </head>
+                <body>
+                    <header th:replace="layout/plantilla :: header"/> 
+
+                    <section th:fragment="listadoProductos" id="productos">
+                        <div class="container">
+                            <div class="row row-cols-2">
+
+                                <div id="resultsBlock">
+
+                                </div>
+                            </div>                                               
+                            <div class="row row-cols-3" th:if="${productos!=null and !productos.empty}">     
+                                <div class="card" style="margin: 0.5rem; width: 424px"th:each="productos : ${productos}">
+                                    <div class="card-body">
+                                        <figure>
+                                            <center>
+                                                            <img th:src="@{${productos.rutaImagen}}" width="120" height="120"/>
+                                                        </center>
+                                        </figure>
+                                        <h5 class="card-title">[[${productos.nombre}]]<br><hr></h5>
+                                                    <h6 class="card-subtitle mb-2 text-muted text-end">Existencias: [[${productos.existencias}]]</h6>
+                                                    <figure>
+                                                        
+                                                        <figcaption>
+                                                            ₡[[${#numbers.formatDecimal(productos.precio,3,0)}]]
+                                                        </figcaption>
+                                                    </figure>                                               
+
+                                                    <p class="card-text">[[${productos.descripcion}]]</p>
+                                                    
+                                                    <a th:href="@{/login}"><button sec:authorize="!isAuthenticated" style="width: 100%; background-color: #260D40;color: #F2A922" class="btn btn-ligth"  type="button"><i style="color: #F2A922" class="fas fa-cart-plus"></i>&nbsp;Agregar al Carrito</button></a>
+                                                    <form>
+                                                        <input type="hidden" name="texto" th:value="${productos.idProducto}"/>
+                                                        <input type="hidden" name="texto" th:value="${productos.existencias}"/>
+                                                        <button sec:authorize="isAuthenticated" style="width: 100%; background-color: #260D40;color: #F2A922" class="btn btn-ligth" id="addCar" name="addCar" onclick="addCard(this.form)" type="submit"><i style="color: #F2A922" class="fas fa-cart-plus"></i>&nbsp;Agregar al Carrito</button>
+                                                    </form>
+                                                    
+                                                    <hr sec:authorize="hasRole('ROLE_ADMIN')">
+                                                   
+                                                    <a style="align-self: end" class="align-self-end" th:if="${productos.activo=true}" th:href="@{/productos/modificar/} + ${productos.idProducto}"><button class="btn w-100" style="color: #F2A922;background-color: #260D40" sec:authorize="hasRole('ROLE_ADMIN')"> <i class="fas fa-angle-double-right"></i>&nbsp;Editar producto</button></a>
+
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    <div th:if="${productos==null and productos.empty}">
+                                                        <h2>no mostrar</h2>
+                                                    </div>
+                                                    </div>
+                                                    <div th:if="${productos==null or productos.empty}">
+                                                        <h2  style="position: fixed;top:200px;left: 15px;color: black">No hay productos a la venta en este momento.<br><a th:href="@{/productos/nuevo/}" sec:authorize="hasRole('ROLE_ADMIN')">Nuevo</a></h2>
+
+                                                    </div>
+                                                    </section>
+
+
+
+
+                                                    <section th:fragment="listadoCarrito" id="carrito">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-md-9">
+                                                                    <div class="card">
+                                                                        <div class="card-header">
+                                                                            <h4>Lista del Carrito</h4>
+                                                                        </div>
+                                                                        <div th:if="${items != null and !items.empty}">
+                                                                            <table class="table table-stryped">
+                                                                                <thead class="thead-dark"><center>
+                                                                                        <tr>
+                                                                                            <th style="text-align: center">#</th>
+                                                                                            <th  style="text-align: center">Nombre</th>
+                                                                                            <th  style="text-align: center">Precio</th>
+                                                                                            <th style="text-align: center">Descripcion</th>
+                                                                                            <th style="text-align: center">Cantidad</th>
+                                                                                            <th style="text-align: center">Total</th>
+                                                                                            <th style="text-align: center">Eliminar de Carrito</th>
+                                                                                        </tr></center>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr th:each="item, contador : ${items}">
+                                                                                        <td>[[${contador.count}]]</td>
+                                                                                        <td>[[${item.nombre}]]</td>
+                                                                                        <td class="text-end">[[${new java.text.DecimalFormat('₡#,##0.00').format(item.precio)}]]</td>
+                                                                                        <td>[[${item.descripcion}]]</td>
+                                                                                        <td class="text-center">[[${new java.text.DecimalFormat('# ###,##0').format(item.cantidad)}]]</td>
+                                                                                        <td class="text-center">[[${new java.text.DecimalFormat('₡# ###,##0.00').format(item.cantidad*item.precio)}]]</td>
+                                                                                        <td>
+                                                                                            <a  th:href="@{/carrito/eliminar/}+${item.idProducto}"
+                                                                                                class="btn btn-danger">
+                                                                                                <i class="fas fa-trash"></i> Eliminar producto
+                                                                                            </a>
+                                                                                        </td>
+
+
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="text-center p-2" th:if="${items == null or items.empty}">
+                                                                            <span >Lista vacía</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="card text-center bg-danger text-white mb-3">
+                                                                        <div class="card-body">
+                                                                            <h3 >Total compra</h3>
+                                                                            <h4 class="fs-4">
+                                                                                [[${new java.text.DecimalFormat('₡#,##0.00').format(carritoTotal)}]]
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="card text-center bg-success text-white mb-3">
+                                                                        <a  th:href="@{/facturar/carrito}"
+                                                                                                class="btn btn-success" style="padding: 1.5rem">
+                                                                                                <i class="fas fa-forward">Facturar</i> 
+                                                                                            </a>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                    <footer th:replace="layout/plantilla :: footer"/>
+                                                    </body>
+                                                    </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+            
+         
+    </head>
+    <body class="body1">
+        <header th:replace="layout/plantilla :: header"/>         
+
+
+
+
+
+        <div class="box5">
+            <h2 style="background-color: #260D40; color: #F2A922;border-radius: 5px;font-size: 28px;text-align: center;padding: 10px">Registro</h2>
+            
+            <form method="POST" th:action="@{/cuenta/guardar}">         
+
+                <br>
+                    <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Usuario</strong></label><br>
+                        <input type="text" name="username" id="username" style="width: 50%"/><br><br>
+                <hr>
+                    <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Contraseña</strong></label><br>
+                        <input type="password" name="password" id="password" style="width: 50%"/><br><br>
+                
+
+                <hr/>
+                <br>
+                    <input class="button" type="submit" value="Registrarse" name="guardar"/>
+            </form>
+        </div>
+        <section id="login">
+            <div class="box4">
+                <h2 style="background-color: #260D40; color: #F2A922;border-radius: 5px;font-size: 28px;text-align: center;padding: 10px">Login</h2>
+                
+                <form method="post" th:action="@{/login}">         
+
+                    <br>
+                        <label style="font-size: 20px;line-height: 1.5;" for="nombre"><strong>Usuario</strong></label><br>
+                            <input type="text" name="username" id="username" style="width: 50%"/><br><br>
+                    <hr>
+                        <label style="font-size: 20px;line-height: 1.5;" for="precio"><strong>Contraseña</strong></label><br>
+                            <input type="password" name="password" id="password" style="width: 50%"/><br><br>
+                    <hr>
+
+                        
+                    <br>
+                        <input class="button" type="submit" value="Iniciar sesion" name="guardar"/>
+                </form>
+
+
+            </div>
+        </section>
+
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

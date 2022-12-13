@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>PetCare</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+                <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+                    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"> 
+                        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+                        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+                        </head>
+
+                   
+                        <body class="body1">
+                            <header th:replace="layout/plantilla :: header"/>
+
+                            </header>
+                            <br>  <br>  <br>  <br>  <br>  <br>  <br>
+                                
+                                <section th:fragment="listadoCarrito" id="carrito">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4>Lista del Carrito</h4>
+                                                    </div>
+                                                    <div th:if="${items != null and !items.empty}">
+                                                        <table class="table table-stryped">
+                                                            <thead class="thead-dark">
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th >Nombre</th>
+                                                                    <th >precio</th>
+                                                                    <th>Descripcion</th>
+                                                                    <th>Cantidad</th>
+                                                                    <th>Total</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr th:each="item, contador : ${items}">
+                                                                    <td>[[${contador.count}]]</td>
+                                                                    <td>[[${item.nombre}</td>
+                                                                    <td class="text-end">[[${new java.text.DecimalFormat('₡#,##0.00').format(item.precio)}]]</td>
+                                                                    <td>[[${item.descripcion}</td>
+                                                                    <td class="text-center">[[${new java.text.DecimalFormat('# ###,##0').format(item.cantidad)}]]</td>
+                                                                    <td class="text-center">[[${new java.text.DecimalFormat('₡# ###,##0.00').format(item.cantidad*item.precio)}]]</td>
+                                                                    <td>
+                                                                        <a  th:href="@{/carrito/eliminar/}+${item.idProducto}"
+                                                                            class="btn btn-danger">
+                                                                            <i class="fas fa-trash"></i> Eliminar producto
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a th:href="@{/carrito/modificar/}+${item.idProducto}"
+                                                                           class="btn btn-success">
+                                                                            <i class="fas fa-pencil"></i> Modificar carrito
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="text-center p-2" th:if="${items == null or items.empty}">
+                                                        <span >Lista vacía</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card text-center bg-danger text-white mb-3">
+                                                    <div class="card-body">
+                                                        <h3 >Total compra</h3>
+                                                        <h4 class="fs-4">
+                                                            0
+                                                        </h4>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card text-center bg-success text-white mb-3">
+                                                    <div class="card-body">
+                                                        <h3 >Total Clientes</h3>
+                                                        <h4 class="display-6">
+                                                            <i class="fas fa-users"></i> [[${totalClientes}]]
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <br>
+                                    
+                                    </body>
+                                    </html>
